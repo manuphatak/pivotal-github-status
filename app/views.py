@@ -2,5 +2,5 @@ from app import app
 
 
 @app.route("/")
-def hello():
+def index():
     return "Hello World!"
