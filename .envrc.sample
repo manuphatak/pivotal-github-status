@@ -1,0 +1,2 @@
+PATH_add bin
+path_add PYTHONPATH .
