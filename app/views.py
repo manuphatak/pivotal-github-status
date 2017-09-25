@@ -5,5 +5,5 @@ from flask import request
 @app.route("/", methods=['POST'])
 def index():
 
-    app.logger.debug(request.form)
+    app.logger.info(request.form)
     return "{'response': 'Ok'}"
