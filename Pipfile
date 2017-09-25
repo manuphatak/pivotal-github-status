@@ -9,12 +9,14 @@ fn = "*"
 flask = "*"
 jsonschema = "*"
 gunicorn = "*"
+requests = "*"
 
 
 [dev-packages]
 
 yapf = "*"
 pylama = "*"
+ipdb = "*"
 
 
 

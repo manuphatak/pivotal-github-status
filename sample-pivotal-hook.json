@@ -1,0 +1,46 @@
+{
+  "kind": "story_update_activity",
+  "guid": "2113469_16",
+  "project_version": 16,
+  "message": "Manu Phatak finished this feature",
+  "highlight": "finished",
+  "changes": [
+    {
+      "kind": "story",
+      "change_type": "update",
+      "id": 151356728,
+      "original_values": {
+        "current_state": "started",
+        "updated_at": 1506309226000
+      },
+      "new_values": {
+        "current_state": "finished",
+        "updated_at": 1506309433000
+      },
+      "name": "Test Story",
+      "story_type": "feature"
+    }
+  ],
+  "primary_resources": [
+    {
+      "kind": "story",
+      "id": 151356728,
+      "name": "Test Story",
+      "story_type": "feature",
+      "url": "https://www.pivotaltracker.com/story/show/151356728"
+    }
+  ],
+  "secondary_resources": [],
+  "project": {
+    "kind": "project",
+    "id": 2113469,
+    "name": "test_project"
+  },
+  "performed_by": {
+    "kind": "person",
+    "id": 2148385,
+    "name": "Manu Phatak",
+    "initials": "MP"
+  },
+  "occurred_at": 1506309433000
+}

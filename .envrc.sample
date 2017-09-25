@@ -1,2 +1,3 @@
 PATH_add bin
 path_add PYTHONPATH .
+export GITHUB_ACCESS_TOKEN=secret

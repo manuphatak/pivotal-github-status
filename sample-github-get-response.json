@@ -1,0 +1,83 @@
+{
+  "data": {
+    "repository": {
+      "id": "MDEwOlJlcG9zaXRvcnkxMDQ2ODI4OTI=",
+      "labels": {
+        "edges": [
+          {
+            "node": {
+              "id": "MDU6TGFiZWw3MDE2NzkwMjE=",
+              "name": "bug"
+            }
+          },
+          {
+            "node": {
+              "id": "MDU6TGFiZWw3MDE2NzkwMjI=",
+              "name": "duplicate"
+            }
+          },
+          {
+            "node": {
+              "id": "MDU6TGFiZWw3MDE2NzkwMjM=",
+              "name": "enhancement"
+            }
+          },
+          {
+            "node": {
+              "id": "MDU6TGFiZWw3MDE2NzkwMjQ=",
+              "name": "help wanted"
+            }
+          },
+          {
+            "node": {
+              "id": "MDU6TGFiZWw3MDE2NzkwMjU=",
+              "name": "good first issue"
+            }
+          },
+          {
+            "node": {
+              "id": "MDU6TGFiZWw3MDE2NzkwMjY=",
+              "name": "invalid"
+            }
+          },
+          {
+            "node": {
+              "id": "MDU6TGFiZWw3MDE2NzkwMjc=",
+              "name": "question"
+            }
+          },
+          {
+            "node": {
+              "id": "MDU6TGFiZWw3MDE2NzkwMjg=",
+              "name": "wontfix"
+            }
+          },
+          {
+            "node": {
+              "id": "MDU6TGFiZWw3MDE3NzU2NTE=",
+              "name": "accepted"
+            }
+          }
+        ]
+      },
+      "pullRequests": {
+        "edges": [
+          {
+            "node": {
+              "id": "MDExOlB1bGxSZXF1ZXN0MTQyNzc1ODU2",
+              "number": 1,
+              "title": "Test Story [Fixes #151356728]"
+            }
+          },
+          {
+            "node": {
+              "id": "MDExOlB1bGxSZXF1ZXN0MTQyNzg1NTUx",
+              "number": 3,
+              "title": "Conflict with issues [No Story]"
+            }
+          }
+        ]
+      }
+    }
+  }
+}
