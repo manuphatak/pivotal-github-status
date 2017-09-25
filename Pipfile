@@ -12,7 +12,10 @@ gunicorn = "*"
 
 
 [dev-packages]
+
 yapf = "*"
+pylama = "*"
+
 
 
 

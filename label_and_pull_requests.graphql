@@ -1,0 +1,26 @@
+query LabelsAndPullRequests {
+  repository(owner: "bionikspoon", name: "test_repo") {
+    id
+    labels(first: 100) {
+      edges {
+        node {
+          id
+          name
+        }
+      }
+    }
+    pullRequests(
+      first: 100
+      states: [OPEN]
+      orderBy: { field: CREATED_AT, direction: ASC }
+    ) {
+      edges {
+        node {
+          id
+          number
+          title
+        }
+      }
+    }
+  }
+}

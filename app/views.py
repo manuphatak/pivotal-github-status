@@ -1,6 +1,9 @@
 from app import app
+from flask import request
 
 
-@app.route("/")
+@app.route("/", methods=['POST'])
 def index():
-    return "Hello World!"
+
+    app.logger.debug(request.form)
+    return "{'response': 'Ok'}"
