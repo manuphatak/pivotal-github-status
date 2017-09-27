@@ -13,6 +13,7 @@ def index():
         'Content-Type': 'application/json'
     }
     app.logger.info(('headers', headers))
+    app.logger.info(('request.remote_addr', request.remote_addr))
 
     def set_label(change_id, change_status, pull_request):
 
