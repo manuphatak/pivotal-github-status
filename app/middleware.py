@@ -18,7 +18,8 @@ def whitelist_ips():
 
 @app.before_request
 def limit_remote_addr():
-    if request.remote_addr not in whitelist_ips():
+    # TODO: whitelist pivotal urls
+    if False and request.remote_addr not in whitelist_ips():
         app.logger.warning('remote_addr(%s) not whitelisted. whitelist: %r',
                            request.remote_addr, list(whitelist_ips()))
         abort(403)
