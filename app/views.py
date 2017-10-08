@@ -22,7 +22,7 @@ def get_story_state(change):
     methods=['POST'])
 def index(repo_owner, repo_name, access_token):
     for change in request.json['changes']:
-        story_id, next_state = get_story_state(change)
+        story_id, next_label = get_story_state(change)
         try:
             pull_requests = github.pull_requests(
                 repo_owner, repo_name, access_token=access_token)
@@ -35,10 +35,8 @@ def index(repo_owner, repo_name, access_token):
 
             try:
                 github.set_label(
-                    pull_request['number'],
-                    next_state,
-                    access_token=access_token)
-            except Exception as e:
+                    pull_request, next_label, access_token=access_token)
+            except requests.HTTPError as e:
                 return log_and_abort(e)
 
     return jsonify(response='Ok')
