@@ -17,6 +17,8 @@ requests = "*"
 yapf = "*"
 pylama = "*"
 ipdb = "*"
+pytest = "*"
+pudb = "*"
 
 
 
