@@ -5,9 +5,7 @@ name = "pypi"
 
 [packages]
 
-fn = "*"
 flask = "*"
-jsonschema = "*"
 gunicorn = "*"
 requests = "*"
 
@@ -17,7 +15,6 @@ requests = "*"
 yapf = "*"
 pylama = "*"
 ipdb = "*"
-pytest = "*"
 pudb = "*"
 
 

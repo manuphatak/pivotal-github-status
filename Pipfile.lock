@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "84968e6268220172868e974d75201a67c4b2bf1c8d0d76aff465f73b8cf9fd73"
+            "sha256": "805b1b3f6dc8fc47f80019c793761ea127232197854c5a30796406b0da9dbb8b"
         },
         "host-environment-markers": {
             "implementation_name": "cpython",
@@ -57,12 +57,6 @@
             ],
             "version": "==0.12.2"
         },
-        "fn": {
-            "hashes": [
-                "sha256:f8cd80cdabf15367a2f07e7a9951fdc013d7200412743d85b88f2c896c95bada"
-            ],
-            "version": "==0.4.3"
-        },
         "gunicorn": {
             "hashes": [
                 "sha256:75af03c99389535f218cc596c7de74df4763803f7b63eb09d77e92b3956b36c6",
@@ -89,13 +83,6 @@
                 "sha256:ddaa01a212cd6d641401cb01b605f4a4d9f37bfc93043d7f760ec70fb99ff9ff"
             ],
             "version": "==2.9.6"
-        },
-        "jsonschema": {
-            "hashes": [
-                "sha256:000e68abd33c972a5248544925a0cae7d1125f9bf6c58280d37546b946769a08",
-                "sha256:6ff5f3180870836cae40f06fa10419f557208175f13ad7bc26caa77beb1f6e02"
-            ],
-            "version": "==2.6.0"
         },
         "markupsafe": {
             "hashes": [
@@ -218,13 +205,6 @@
             ],
             "version": "==2017.1.4"
         },
-        "py": {
-            "hashes": [
-                "sha256:2ccb79b01769d99115aa600d7eed99f524bf752bba8f041dc1c184853514655a",
-                "sha256:0f2d585d22050e90c7d293b6451c83db097df77871974d90efd5a30dc12fcde3"
-            ],
-            "version": "==1.4.34"
-        },
         "pycodestyle": {
             "hashes": [
                 "sha256:6c4245ade1edfad79c3446fadfc96b0de2759662dc29d07d80a6f27ad1ca6ba9",
@@ -259,13 +239,6 @@
                 "sha256:390c1dab1daebdf3d6acc923e551b035c3faa77d8b96b98530c230493f9ec712"
             ],
             "version": "==7.4.3"
-        },
-        "pytest": {
-            "hashes": [
-                "sha256:81a25f36a97da3313e1125fce9e7bbbba565bc7fec3c5beb14c262ddab238ac1",
-                "sha256:27fa6617efc2869d3e969a3e75ec060375bfb28831ade8b5cdd68da3a741dc3c"
-            ],
-            "version": "==3.2.3"
         },
         "simplegeneric": {
             "hashes": [
