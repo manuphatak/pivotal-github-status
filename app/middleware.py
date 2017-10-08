@@ -22,3 +22,5 @@ def limit_remote_addr():
         app.logger.warning('remote_addr(%s) not whitelisted. whitelist: %r',
                            request.remote_addr, list(whitelist_ips()))
         abort(403)
+
+    app.logger.info('request accepted from %s', request.remote_addr)

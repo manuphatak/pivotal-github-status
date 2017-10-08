@@ -4,6 +4,13 @@ from flask import request, jsonify, abort
 import requests
 
 
+def log_and_abort(e):
+    app.logger.warning('%s. Authorization: %s', e.args[0],
+                       e.request.headers.get('Authorization', 'null'))
+
+    return abort(e.response.status_code)
+
+
 def get_story_state(change):
     story_id = change['id']
     next_state = change['new_values']['current_state']
@@ -20,7 +27,7 @@ def index(repo_owner, repo_name, access_token):
             pull_requests = github.pull_requests(
                 repo_owner, repo_name, access_token=access_token)
         except requests.HTTPError as e:
-            return abort(e.response.status_code)
+            return log_and_abort(e)
 
         for pull_request in pull_requests:
             if str(story_id) not in pull_request['title']:
@@ -32,6 +39,6 @@ def index(repo_owner, repo_name, access_token):
                     next_state,
                     access_token=access_token)
             except Exception as e:
-                return abort(e.response.status_code)
+                return log_and_abort(e)
 
     return jsonify(response='Ok')
