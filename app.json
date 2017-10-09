@@ -1,0 +1,26 @@
+{
+  "name": "pivotal-github-status",
+  "description": "",
+  "scripts": {},
+  "env": {
+    "GITHUB_ACCESS_TOKEN": {
+      "required": true
+    },
+    "PAPERTRAIL_API_TOKEN": {
+      "required": true
+    },
+    "PIVOTAL_ACCESS_TOKEN": {
+      "required": true
+    },
+    "SECRET_KEY": {
+      "required": true
+    }
+  },
+  "formation": {},
+  "addons": ["papertrail"],
+  "buildpacks": [
+    {
+      "url": "heroku/python"
+    }
+  ]
+}
