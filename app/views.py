@@ -4,7 +4,7 @@ from flask import request, jsonify, abort
 import requests
 import re
 
-_re_story_ids = re.compile(r"[^#]*#(\d+)(?=[,\]\s])")
+_re_story_ids = re.compile(r'[^#]*#(\d+)(?=[,\]\s])')
 
 PIVOTAL_ACCESS_TOKEN = app.config['PIVOTAL_ACCESS_TOKEN']
 GITHUB_ACCESS_TOKEN = app.config['GITHUB_ACCESS_TOKEN']
@@ -54,7 +54,7 @@ def github_hook(project_id, secret_key):
 
 
 @app.route(
-    "/pivotal/<string:repo_owner>/<string:repo_name>/<string:secret_key>",
+    '/pivotal/<string:repo_owner>/<string:repo_name>/<string:secret_key>',
     methods=['POST'])
 def pivotal_hook(repo_owner, repo_name, secret_key):
     for change in request.json['changes']:

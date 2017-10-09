@@ -8,7 +8,7 @@ def _auth_headers(access_token):
 
 
 def story(project_id, story_id, access_token):
-    url = f"{PIVOTAL_API_V5}/projects/{project_id}/stories/{story_id}"
+    url = f'{PIVOTAL_API_V5}/projects/{project_id}/stories/{story_id}'
     response = requests.get(url, headers=_auth_headers(access_token))
     response.raise_for_status()
 

@@ -2,7 +2,7 @@ from app.views import get_story_ids
 import pytest
 
 
-@pytest.mark.parametrize("test_input,expected", [
+@pytest.mark.parametrize('test_input, expected', [
     ('Test Story [Fixes #151356728]', ('151356728', )),
     ('Test Story [#151356728]', ('151356728', )),
     ('Test Story', tuple()),

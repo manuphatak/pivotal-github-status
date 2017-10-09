@@ -9,7 +9,7 @@ GITHUB_API_V4 = 'https://api.github.com/graphql'
 
 def _auth_headers(access_token):
     return {
-        'Authorization': f"bearer {access_token}",
+        'Authorization': f'bearer {access_token}',
         'Content-Type': 'application/json'
     }
 
@@ -28,7 +28,7 @@ def _next_labels(next_label, prev_labels):
 def set_label(pull_request, next_label, *, access_token):
     issue_id = pull_request['number']
     labels = _next_labels(next_label, _get_labels(pull_request))
-    url = f"{GITHUB_API_V3}/repos/bionikspoon/test_repo/issues/{issue_id}"
+    url = f'{GITHUB_API_V3}/repos/bionikspoon/test_repo/issues/{issue_id}'
     data = json.dumps({'labels': labels})
 
     response = requests.post(url, data, headers=_auth_headers(access_token))
@@ -40,11 +40,11 @@ def set_label(pull_request, next_label, *, access_token):
 
 def pull_request(repo_owner, repo_name, pull_request_number, *, access_token):
     data = json.dumps({
-        "query": PULL_REQUEST_QUERY,
-        "variables": {
-            "owner": repo_owner,
-            "name": repo_name,
-            "number": pull_request_number
+        'query': PULL_REQUEST_QUERY,
+        'variables': {
+            'owner': repo_owner,
+            'name': repo_name,
+            'number': pull_request_number
         }
     })
     response = requests.post(
@@ -56,10 +56,10 @@ def pull_request(repo_owner, repo_name, pull_request_number, *, access_token):
 
 def pull_requests(repo_owner, repo_name, *, access_token):
     data = json.dumps({
-        "query": PULL_REQUESTS_QUERY,
-        "variables": {
-            "owner": repo_owner,
-            "name": repo_name
+        'query': PULL_REQUESTS_QUERY,
+        'variables': {
+            'owner': repo_owner,
+            'name': repo_name
         }
     })
 
