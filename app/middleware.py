@@ -17,6 +17,14 @@ def whitelist_ips():
 
 
 @app.before_request
+def verify_secret_key():
+    secret_key = request.view_args['secret_key']
+    if secret_key != app.config['SECRET_KEY']:
+        app.logger.warning('invalid secret key: %s', secret_key)
+        abort(403)
+
+
+@app.before_request
 def limit_remote_addr():
     # TODO: whitelist pivotal urls
     if False and request.remote_addr not in whitelist_ips():

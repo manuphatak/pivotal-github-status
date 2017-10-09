@@ -1,3 +1,5 @@
 PATH_add bin
 path_add PYTHONPATH .
 export GITHUB_ACCESS_TOKEN=secret
+export PIVOTAL_ACCESS_TOKEN=secret
+export SECRET_KEY=secret

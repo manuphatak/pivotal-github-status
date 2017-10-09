@@ -1,4 +1,4 @@
-query LabelsAndPullRequests($owner: String!, $name: String!) {
+query PullRequests($owner: String!, $name: String!) {
   repository(owner: $owner, name: $name) {
     id
     pullRequests(

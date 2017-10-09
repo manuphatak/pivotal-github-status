@@ -1,7 +1,7 @@
 import json
 import requests
 from ... import app
-from .pull_requests_query import PULL_REQUESTS_QUERY
+from .graphql_queries import PULL_REQUEST_QUERY, PULL_REQUESTS_QUERY
 
 GITHUB_API_V3 = 'https://api.github.com'
 GITHUB_API_V4 = 'https://api.github.com/graphql'
@@ -38,8 +38,23 @@ def set_label(pull_request, next_label, *, access_token):
     return response
 
 
+def pull_request(repo_owner, repo_name, pull_request_number, *, access_token):
+    data = json.dumps({
+        "query": PULL_REQUEST_QUERY,
+        "variables": {
+            "owner": repo_owner,
+            "name": repo_name,
+            "number": pull_request_number
+        }
+    })
+    response = requests.post(
+        GITHUB_API_V4, data, headers=_auth_headers(access_token))
+    response.raise_for_status()
+
+    return response.json()['data']['repository']['pullRequest']
+
+
 def pull_requests(repo_owner, repo_name, *, access_token):
-    app.logger.debug(('PULL_REQUESTS_QUERY', PULL_REQUESTS_QUERY))
     data = json.dumps({
         "query": PULL_REQUESTS_QUERY,
         "variables": {

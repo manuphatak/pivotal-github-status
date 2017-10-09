@@ -1,0 +1,16 @@
+query PullRequest($owner: String!, $name: String!, $number: Int!) {
+  repository(owner: $owner, name: $name) {
+    id
+    pullRequest(number: $number) {
+      id
+      number
+      title
+      labels(first: 100) {
+        nodes {
+          id
+          name
+        }
+      }
+    }
+  }
+}
