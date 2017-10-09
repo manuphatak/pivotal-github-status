@@ -16,6 +16,11 @@ yapf = "*"
 pylama = "*"
 ipdb = "*"
 pudb = "*"
+pytest = "*"
+"pytest-watch" = "*"
+"flake8-blind-except" = "*"
+"flake8-quotes" = "*"
+"flake8" = "*"
 
 
 

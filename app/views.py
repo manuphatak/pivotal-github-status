@@ -4,8 +4,7 @@ from flask import request, jsonify, abort
 import requests
 import re
 
-_re_brackets = re.compile(r"\[(.*)\]")
-_re_story_ids = re.compile(r"(?:(?:\w+\s)?#?(\d+))+")
+_re_story_ids = re.compile(r"[^#]*#(\d+)(?=[,\]\s])")
 
 PIVOTAL_ACCESS_TOKEN = app.config['PIVOTAL_ACCESS_TOKEN']
 GITHUB_ACCESS_TOKEN = app.config['GITHUB_ACCESS_TOKEN']
@@ -25,11 +24,7 @@ def get_story_state(change):
 
 
 def get_story_ids(title):
-    try:
-        stories = _re_brackets.search(title).group(1)
-        return _re_story_ids.search(stories).groups()
-    except AttributeError:
-        return []
+    return (match for match in _re_story_ids.findall(title))
 
 
 @app.route('/github/<int:project_id>/<string:secret_key>', methods=['POST'])
