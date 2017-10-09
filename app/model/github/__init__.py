@@ -18,16 +18,16 @@ def _get_labels(pull_request):
     return (label['name'] for label in pull_request['labels']['nodes'])
 
 
-def _next_labels(next_label, prev_labels):
+def _next_labels(next_labels, prev_labels):
     labels = (label for label in prev_labels
               if label not in app.config['MANAGED_LABELS'])
 
-    return (*labels, next_label)
+    return (*labels, *next_labels)
 
 
 def set_labels(pull_request, labels, *, access_token):
     issue_id = pull_request['number']
-    next_labels = tuple(*_next_labels(labels, _get_labels(pull_request)))
+    next_labels = tuple(_next_labels(labels, _get_labels(pull_request)))
     url = f'{GITHUB_API_V3}/repos/bionikspoon/test_repo/issues/{issue_id}'
     data = json.dumps({'labels': next_labels})
 

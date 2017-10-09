@@ -51,7 +51,7 @@ def set_pull_request_labels(pull_request, project_id):
 @app.route('/github/<int:project_id>/<string:secret_key>', methods=['POST'])
 def github_hook(project_id, secret_key):
     if request.json['action'] in BLACKLISTED_GITHUB_ACTIONS:
-        app.logger.info('Ignoring %s event from github',
+        app.logger.info('Ignoring %r event from github',
                         request.json['action'])
         return ('', 200)
 
