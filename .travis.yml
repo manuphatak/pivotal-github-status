@@ -7,6 +7,6 @@ install:
   - pip install pipenv
   - pipenv install --dev --skip-lock
 before_script:
-  - pipenv runflake8
+  - pipenv run flake8
 script:
   - pipenv run py.test
