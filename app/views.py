@@ -48,6 +48,11 @@ def set_pull_request_labels(pull_request, project_id):
         return log_and_abort(e)
 
 
+@app.route('/')
+def index():
+    return ('', 200)
+
+
 @app.route('/github/<int:project_id>/<string:secret_key>', methods=['POST'])
 def github_hook(project_id, secret_key):
     if request.json['action'] in BLACKLISTED_GITHUB_ACTIONS:
