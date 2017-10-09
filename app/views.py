@@ -32,7 +32,7 @@ def get_story_ids(title):
         return []
 
 
-@app.route('/pivotal/<int:project_id>/<string:secret_key>', methods=['POST'])
+@app.route('/github/<int:project_id>/<string:secret_key>', methods=['POST'])
 def github_hook(project_id, secret_key):
     repo_owner = request.json['repository']['owner']['login']
     repo_name = request.json['repository']['name']
@@ -59,7 +59,7 @@ def github_hook(project_id, secret_key):
 
 
 @app.route(
-    "/github/<string:repo_owner>/<string:repo_name>/<string:secret_key>",
+    "/pivotal/<string:repo_owner>/<string:repo_name>/<string:secret_key>",
     methods=['POST'])
 def pivotal_hook(repo_owner, repo_name, secret_key):
     for change in request.json['changes']:
