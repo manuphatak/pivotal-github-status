@@ -18,10 +18,14 @@ def whitelist_ips():
 
 @app.before_request
 def verify_secret_key():
-    secret_key = request.view_args['secret_key']
+    try:
+        secret_key = request.view_args['secret_key']
+    except (KeyError, TypeError):
+        return abort(404)
+
     if secret_key != app.config['SECRET_KEY']:
         app.logger.warning('invalid secret key: %s', secret_key)
-        abort(403)
+        return abort(403)
 
 
 @app.before_request
