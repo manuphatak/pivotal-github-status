@@ -3,6 +3,8 @@ sudo: false  # http://docs.travis-ci.com/user/migrating-from-legacy/
 language: python
 python:
   - 3.6
+env:
+  - PYTHONPATH=$TRAVIS_BUILD_DIR GITHUB_ACCESS_TOKEN=secret PIVOTAL_ACCESS_TOKEN=secret SECRET_KEY=secret
 install:
   - pip install pipenv
   - pipenv install --dev --skip-lock
