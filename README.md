@@ -27,6 +27,16 @@ Master: [![Build Status](https://travis-ci.org/bionikspoon/pivotal-github-status
 * Go to your project -> settings -> webhooks: `github.com/<owner>/<repo>/settings/hooks`
 * Add a url pointing to your service with the following schema: `/github/<string:secret_key>`
   - example: `https://62f143e5.ngrok.io/github/secret_key`
+  - Settings:
+    - content type: `application/json`
+    - events: "let me select individual events" -> uncheck each -> check "Pull Request"
+    - __SUPER IMPORTANT__: ^^.  Server untested with other event types. No idea what will happen.
+
+      ![Github Screen 00](docs/imgs/github-screen-00.png)
+
+      `...`
+
+      ![Github Screen 01](docs/imgs/github-screen-01.png)
 
 ### Part 4: Done
 
