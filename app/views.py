@@ -35,13 +35,12 @@ def pull_requests_for_story(owner, repo, story_id):
         yield pull_request
 
 
-def set_pull_request_labels(pull_request, project_id):
+def set_pull_request_labels(pull_request):
     story_ids = get_story_ids(pull_request['title'])
     try:
-        labels = (
-            story['current_state']
-            for story in pivotal.stories(
-                project_id, story_ids, access_token=PIVOTAL_ACCESS_TOKEN))
+        labels = (story['current_state']
+                  for story in pivotal.stories(
+                      story_ids, access_token=PIVOTAL_ACCESS_TOKEN))
         github.set_labels(
             pull_request, labels, access_token=GITHUB_ACCESS_TOKEN)
     except requests.HTTPError as e:
@@ -53,8 +52,8 @@ def index():
     return ('', 200)
 
 
-@app.route('/github/<int:project_id>/<string:secret_key>', methods=['POST'])
-def github_hook(project_id, secret_key):
+@app.route('/github/<string:secret_key>', methods=['POST'])
+def github_hook(secret_key):
     if request.json['action'] in BLACKLISTED_GITHUB_ACTIONS:
         app.logger.info('Ignoring %r event from github',
                         request.json['action'])
@@ -67,19 +66,19 @@ def github_hook(project_id, secret_key):
     pull_request = github.pull_request(
         owner, repo, pull_request_number, access_token=GITHUB_ACCESS_TOKEN)
 
-    set_pull_request_labels(pull_request, project_id)
+    set_pull_request_labels(pull_request)
 
     return ('', 204)
 
 
 @app.route(
-    '/pivotal/<int:project_id>/<string:owner>/<string:repo>/<string:secret_key>',  # noqa E501
+    '/pivotal/<string:owner>/<string:repo>/<string:secret_key>',  # noqa E501
     methods=['POST'])
-def pivotal_hook(project_id, owner, repo, secret_key):
+def pivotal_hook(owner, repo, secret_key):
     for change in request.json['changes']:
         story_id = str(change['id'])
 
         for pull_request in pull_requests_for_story(owner, repo, story_id):
-            set_pull_request_labels(pull_request, project_id)
+            set_pull_request_labels(pull_request)
 
     return ('', 204)
