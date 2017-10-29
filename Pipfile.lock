@@ -150,10 +150,10 @@
         },
         "flake8": {
             "hashes": [
-                "sha256:f1a9d8886a9cbefb52485f4f4c770832c7fb569c084a9a314fb1eaa37c0c2c86",
-                "sha256:c20044779ff848f67f89c56a0e4624c04298cd476e25253ac0c36f910a1a11d8"
+                "sha256:c7841163e2b576d435799169b78703ad6ac1bbb0f199994fc05f700b2a90ea37",
+                "sha256:7253265f7abd8b313e3892944044a365e3f4ac3fcdcfb4298f55ee9ddf188ba0"
             ],
-            "version": "==3.4.1"
+            "version": "==3.5.0"
         },
         "flake8-blind-except": {
             "hashes": [
@@ -164,9 +164,9 @@
         },
         "flake8-quotes": {
             "hashes": [
-                "sha256:0b8e5ea5407e8308ff237ab814414a1dcd4c309c5c47363b6ad07a35068684e1"
+                "sha256:1469fe554777f81b3a0be0b828663e400b028fde36d86a03c7c8a036c8ecaca4"
             ],
-            "version": "==0.11.0"
+            "version": "==0.12.0"
         },
         "ipdb": {
             "hashes": [
@@ -275,10 +275,10 @@
         },
         "pyflakes": {
             "hashes": [
-                "sha256:cc5eadfb38041f8366128786b4ca12700ed05bbf1403d808e89d57d67a3875a7",
-                "sha256:aa0d4dff45c0cc2214ba158d29280f8fa1129f3e87858ef825930845146337f4"
+                "sha256:08bd6a50edf8cffa9fa09a463063c425ecaaf10d1eb0335a7e8b1401aef89e6f",
+                "sha256:8d616a382f243dbf19b54743f280b80198be0bca3a5396f1d2e1fca6223e8805"
             ],
-            "version": "==1.5.0"
+            "version": "==1.6.0"
         },
         "pygments": {
             "hashes": [
@@ -374,10 +374,10 @@
         },
         "yapf": {
             "hashes": [
-                "sha256:b6a47545511839861ae92108476c119de27a4b137f380f2fd452bcc39bcd6c31",
-                "sha256:c703dbe4ec882061184a4ae128d2fefcae00641bb4c73df9b85fd0ea05294354"
+                "sha256:3ac5887aa98d0ba35186d8a83fa948b880a353cd39df9d9c9ffa920f428e9e8d",
+                "sha256:701b076a4916e3cfbba345e0297dcd54a02fd0fdcae1f43346f8a043c3bbd052"
             ],
-            "version": "==0.18.0"
+            "version": "==0.19.0"
         }
     }
 }
