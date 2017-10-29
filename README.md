@@ -4,6 +4,34 @@ Develop: [![Build Status](https://travis-ci.org/bionikspoon/pivotal-github-statu
 
 Master: [![Build Status](https://travis-ci.org/bionikspoon/pivotal-github-status.svg?branch=master)](https://travis-ci.org/bionikspoon/pivotal-github-status)
 
+## Setup
+
+### Part 1: Heroku (or anywhere)
+
+* Launch Service
+* Set the following env variables:
+  - `GITHUB_ACCESS_TOKEN` - https://github.com/blog/1509-personal-api-tokens
+    - _note_ - needs `repo` access
+  - `PIVOTAL_ACCESS_TOKEN` - https://www.pivotaltracker.com/help/articles/api_token/
+  - `SECRET_KEY` - use a url safe random string
+
+### Part 2: Pivotal
+
+* Go to your project -> settings -> webhooks: `pivotaltracker.com/projects/<project_id>/webhooks`
+* Add a url pointing to your service with the following schema: `/pivotal/<string:owner>/<string:repo>/<string:secret_key>`
+  - example: `https://62f143e5.ngrok.io/pivotal/bionikspoon/test_repo/secret_key`
+* Repeat for each project on your team.
+
+### Part 3: Github
+
+* Go to your project -> settings -> webhooks: `github.com/<owner>/<repo>/settings/hooks`
+* Add a url pointing to your service with the following schema: `/github/<string:secret_key>`
+  - example: `https://62f143e5.ngrok.io/github/secret_key`
+
+### Part 4: Done
+
+:+1:
+
 
 ## Planning Docs
 
