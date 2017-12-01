@@ -35,14 +35,18 @@ def pull_requests_for_story(owner, repo, story_id):
         yield pull_request
 
 
-def set_pull_request_labels(pull_request):
+def set_pull_request_labels(pull_request, owner, repo):
     story_ids = get_story_ids(pull_request['title'])
     try:
         labels = (story['current_state']
                   for story in pivotal.stories(
                       story_ids, access_token=PIVOTAL_ACCESS_TOKEN))
         github.set_labels(
-            pull_request, labels, access_token=GITHUB_ACCESS_TOKEN)
+            pull_request,
+            owner,
+            repo,
+            labels,
+            access_token=GITHUB_ACCESS_TOKEN)
     except requests.HTTPError as e:
         return log_and_abort(e)
 
@@ -66,7 +70,7 @@ def github_hook(secret_key):
     pull_request = github.pull_request(
         owner, repo, pull_request_number, access_token=GITHUB_ACCESS_TOKEN)
 
-    set_pull_request_labels(pull_request)
+    set_pull_request_labels(pull_request, owner, repo)
 
     return ('', 204)
 
@@ -79,6 +83,6 @@ def pivotal_hook(owner, repo, secret_key):
         story_id = str(change['id'])
 
         for pull_request in pull_requests_for_story(owner, repo, story_id):
-            set_pull_request_labels(pull_request)
+            set_pull_request_labels(pull_request, owner, repo)
 
     return ('', 204)
