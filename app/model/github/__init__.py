@@ -25,10 +25,10 @@ def _next_labels(next_labels, prev_labels):
     return (*labels, *next_labels)
 
 
-def set_labels(pull_request, labels, *, access_token):
+def set_labels(pull_request, owner, repo, labels, *, access_token):
     issue_id = pull_request['number']
     next_labels = tuple(_next_labels(labels, _get_labels(pull_request)))
-    url = f'{GITHUB_API_V3}/repos/bionikspoon/test_repo/issues/{issue_id}'
+    url = f'{GITHUB_API_V3}/repos/{owner}/{repo}/issues/{issue_id}'
     data = json.dumps({'labels': next_labels})
 
     response = requests.post(url, data, headers=_auth_headers(access_token))
@@ -37,10 +37,6 @@ def set_labels(pull_request, labels, *, access_token):
                     issue_id)
 
     return response
-
-
-def set_label(pull_request, label, *, access_token):
-    return set_labels(pull_request, [label], access_token=access_token)
 
 
 def pull_request(repo_owner, repo_name, pull_request_number, *, access_token):
